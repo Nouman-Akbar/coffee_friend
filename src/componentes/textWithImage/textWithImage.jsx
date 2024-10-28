@@ -32,10 +32,8 @@ function textWithImage(props) {
     <>
       <section className="container-fluid section" id={sectionId}>
         <div
-          className={`inner-container container text-center py-10 lg:px-12 md:px-10 sm:px-8 px-5 flex flex-auto ${
-            !isLeft ? "md:flex-row-reverse" : "md:flex-row"
-          } flex-col-reverse gap-3 justify-between md:items-center items-stretch `}
-          isLeft={isLeft}
+          className={`inner-container container text-center py-10 lg:px-12 md:px-10 sm:px-8 px-5 flex flex-auto flex-col-reverse gap-3 justify-between md:items-center items-stretch mx-auto 
+            ${isLeft ? "md:flex-row is-left" : "md:flex-row-reverse"}`}
         >
           <div className="text-left md:w-[50%] w-[100%] flex flex-col gap-3 lg:pr-9 md:pr-6">
             <h2 className="lg:text-5xl md:text-4xl text-3xl primary-font-bold color-coffee">
