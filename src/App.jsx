@@ -9,7 +9,7 @@ import FeaturedProducts from "./componentes/featuredProducts/FeaturedProducts.js
 import webbestcoffee from "./assets/DiscoverTheBestCoffee.png";
 import Cappuccino from "./assets/Cappuccino.png";
 import ChaiLatte from "./assets/ChaiLatte.png";
-import macchiato from "./assets/macchiato.png";
+import macchiato from "./assets/Macchiato.png";
 import Expresso from "./assets/Expresso.png";
 
 import supremeBeans from "./assets/supremeBeans.png";
