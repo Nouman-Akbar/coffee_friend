@@ -129,6 +129,7 @@ function App() {
       <TextWithImage {...section_id_home_03} />
       <FeaturedProducts {...featuredProducts} />
       <FeaturedProducts {...whyAreWeDifferent} />
+      <FeaturedProducts {...featuredProducts} />
     </>
   );
 }
