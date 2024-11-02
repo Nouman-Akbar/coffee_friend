@@ -11,22 +11,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
+      # Checkout the code from the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v1
+      # Setup Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: "lts/*" # Use the latest LTS version of Node.js
 
+      # Install dependencies
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: npm ci # Ensures clean install from package-lock.json
 
+      # Build the project
       - name: Build project
         run: npm run build
 
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v2
+      # Upload production-ready build files as artifacts
+      - name: Upload production files
+        uses: actions/upload-artifact@v3
         with:
           name: production-files
           path: ./dist
@@ -38,14 +43,20 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v2
+      # Checkout the repository (if needed for deploy step)
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Download the build artifact from the previous step
+      - name: Download build files
+        uses: actions/download-artifact@v3
         with:
           name: production-files
           path: ./dist
 
+      # Deploy to GitHub Pages or any other static hosting
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
